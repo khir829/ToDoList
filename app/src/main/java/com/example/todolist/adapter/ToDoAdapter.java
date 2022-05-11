@@ -42,8 +42,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
     public void setTasks(List<ToDoModel> toDoList){
         this.toDoList = toDoList;
+        notifyDataSetChanged();
     }
-    
+
     public static class ViewHolder extends RecyclerView.ViewHolder{
         CheckBox task;
 
