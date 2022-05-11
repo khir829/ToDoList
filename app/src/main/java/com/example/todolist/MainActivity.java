@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.example.todolist.adapter.ToDoAdapter;
 import com.example.todolist.model.ToDoModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         // Make the main activity screen look full screen
         getSupportActionBar().hide();
 
+        taskList = new ArrayList<>();
+
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         tasksAdapter = new ToDoAdapter(this);
@@ -40,5 +43,7 @@ public class MainActivity extends AppCompatActivity {
         taskList.add(task);
         taskList.add(task);
         taskList.add(task);
+
+        tasksAdapter.setTasks(taskList);
     }
 }
