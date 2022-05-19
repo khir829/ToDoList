@@ -23,7 +23,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     private SQLiteDatabase db;
 
-    private DataBaseHandler(Context context){
+    public DataBaseHandler(Context context){
         super(context, name, null, version);
     }
 
