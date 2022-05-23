@@ -67,6 +67,14 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
     public Context getContext(){
         return activity;
     }
+
+    public void deleteItem(int position){
+        ToDoModel item = toDoList.get(position);
+        db.deleteTask(item.getId());
+        toDoList.remove(position);
+        notifyItemRemoved(position);
+    }
+
     public void editItem(int position){
         ToDoModel item = toDoList.get(position);
         Bundle bundle = new Bundle();
