@@ -37,11 +37,10 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         db = new DataBaseHandler(this);
         db.openDataBase();
 
-        taskList = new ArrayList<>();
 
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        tasksAdapter = new ToDoAdapter(db,this);
+        tasksAdapter = new ToDoAdapter(db,MainActivity.this);
         tasksRecyclerView.setAdapter(tasksAdapter);
 
         fab = findViewById(R.id.fab);

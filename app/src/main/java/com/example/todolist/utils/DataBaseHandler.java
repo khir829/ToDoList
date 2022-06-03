@@ -25,24 +25,24 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     private SQLiteDatabase db;
 
-    public DataBaseHandler(Context context) {
+    public DataBaseHandler(Context context){
         super(context, name, null, version);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(SQLiteDatabase db){
         db.execSQL(createToDoTable);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
         // Drop old tables
         db.execSQL("DROP TABLE IF EXISTS " + toDoTable);
         // Create tables again
         onCreate(db);
     }
 
-    public void openDataBase() {
+    public void openDataBase(){
         db = this.getWritableDatabase();
     }
 
@@ -57,22 +57,20 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         List<ToDoModel> taskList = new ArrayList<>();
         Cursor cur = null;
         db.beginTransaction();
-        try{
+        try {
             cur = db.query(toDoTable, null, null, null, null, null, null, null);
-            if(cur != null){
-                if(cur.moveToFirst()){
-                    do{
+            if (cur != null){
+                if (cur.moveToFirst()){
+                    do {
                         ToDoModel task = new ToDoModel();
                         task.setId(cur.getInt(cur.getColumnIndexOrThrow(ID)));
                         task.setTask(cur.getString(cur.getColumnIndexOrThrow(this.task)));
                         task.setStatus(cur.getInt(cur.getColumnIndexOrThrow(status)));
                         taskList.add(task);
-                    }
-                    while(cur.moveToNext());
+                    } while (cur.moveToNext());
                 }
             }
-        }
-        finally {
+        } finally {
             db.endTransaction();
             assert cur != null;
             cur.close();
@@ -86,7 +84,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         db.update(toDoTable, cv, ID + "= ?", new String[] {String.valueOf(id)});
     }
 
-    public void updateTask(int id, String task) {
+    public void updateTask(int id, String task){
         ContentValues cv = new ContentValues();
         cv.put(this.task, task);
         db.update(toDoTable, cv, ID + "= ?", new String[] {String.valueOf(id)});

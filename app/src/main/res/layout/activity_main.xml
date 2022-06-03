@@ -8,12 +8,12 @@
         android:id="@+id/tasksText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Tasks"
         android:textColor="@android:color/black"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp"
-        android:textSize="32sp"/>
+        android:textSize="32sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tasksRecyclerView"
@@ -35,6 +35,14 @@
         android:layout_marginEnd="177.5dp"
         android:layout_marginBottom="32dp"
         android:backgroundTint="@android:color/holo_blue_dark"
-        android:src="@drawable/ic_baseline_add"
-      />
+        android:src="@drawable/ic_baseline_add" />
+
+    <TextView
+        android:id="@+id/helperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+
+        android:layout_above="@id/tasksRecyclerView"
+        android:text="Swipe left to edit. Swipe right to delete." />
 </RelativeLayout>
