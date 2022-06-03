@@ -13,12 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp">
+
         <CheckBox
             android:id="@+id/toDoCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tool:text="This is an example of a task"
+            android:buttonTint="@android:color/holo_blue_dark"
             android:paddingStart="8dp"
-            android:buttonTint="@android:color/holo_blue_dark"/>
+            tool:text="This is an example of a task" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
